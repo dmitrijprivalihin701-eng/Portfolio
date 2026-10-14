@@ -220,6 +220,29 @@
     body { padding: 40px 20px; }
     h2 { font-size: 22px; }
   }
+/* Анимации при скролле */
+.scroll-fade {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Плавное появление UI-kit карточек */
+.color-card, .type-sample {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.color-card.visible, .type-sample.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 </style>
 </head>
 <body>
@@ -246,11 +269,11 @@
     </div>
   </div>
 
-  <h2>Задача</h2>
-  <p>
+  <h2 class="scroll-fade">Задача</h2>
+  <p class="scroll-fade">
     Компания производит школьное оборудование для кабинетов химии и физики. Продают школам напрямую и через тендеры. Сайт не обновлялся больше 10 лет — выглядит устаревшим, каталог неудобный, нет онлайн-заявки.
   </p>
-  <ul>
+  <ul class="scroll-fade">
     <li>Обновить визуал — убрать «деревянный» фон, мелкий текст, свалку блоков</li>
     <li>Сделать понятный каталог по категориям</li>
     <li>Добавить онлайн-заявку или корзину</li>
@@ -260,7 +283,7 @@
 
   <h2>UI-kit</h2>
 
-  <div class="ui-section">
+  <div class="ui-section scroll-fade">
     <div class="ui-title">Цвета</div>
     <div class="color-grid">
       <div class="color-card">
@@ -346,21 +369,21 @@
     </div>
   </div>
 
-  <h2>До</h2>
-  <p>Текущий сайт компании — устаревший дизайн, деревянный фон, мелкий текст, каталог свалкой.</p>
-  <div class="placeholder">
+  <h2 class="scroll-fade">До</h2>
+  <p class="scroll-fade">Текущий сайт компании — устаревший дизайн, деревянный фон, мелкий текст, каталог свалкой.</p>
+  <div class="placeholder scroll-fade">
     🖼 Скриншоты старого сайта<br>появятся здесь
   </div>
 
-  <h2>После</h2>
-  <p>Новый дизайн в разработке. Скоро здесь появятся финальные макеты.</p>
-  <div class="placeholder">
+  <h2 class="scroll-fade">После</h2>
+  <p class="scroll-fade">Новый дизайн в разработке. Скоро здесь появятся финальные макеты.</p>
+  <div class="placeholder scroll-fade">
     🎨 Макеты нового сайта<br>в работе
   </div>
 
-  <h2>Результат</h2>
-  <p>Статистика после запуска обновлённого сайта появится здесь после релиза.</p>
-  <div class="placeholder">
+  <h2 class="scroll-fade">Результат</h2>
+  <p class="scroll-fade">Статистика после запуска обновлённого сайта появится здесь после релиза.</p>
+  <div class="placeholder scroll-fade">
     📊 Метрики: заявки, конверсия,<br>время на сайте, отказы
   </div>
 

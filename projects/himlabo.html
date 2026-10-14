@@ -199,29 +199,6 @@
     text-align: center;
   }
 
-  /* Анимации */
-  .scroll-fade {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-
-  .scroll-fade.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .color-card, .type-sample {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-  }
-
-  .color-card.visible, .type-sample.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
   @media (max-width: 600px) {
     h1 { font-size: 32px; }
     body { padding: 40px 20px; }
@@ -253,11 +230,11 @@
     </div>
   </div>
 
-  <h2 class="scroll-fade">Задача</h2>
-  <p class="scroll-fade">
+  <h2>Задача</h2>
+  <p>
     Компания производит школьное оборудование для кабинетов химии и физики. Продают школам напрямую и через тендеры. Сайт не обновлялся больше 10 лет — выглядит устаревшим, каталог неудобный, нет онлайн-заявки.
   </p>
-  <ul class="scroll-fade">
+  <ul>
     <li>Обновить визуал — убрать «деревянный» фон, мелкий текст, свалку блоков</li>
     <li>Сделать понятный каталог по категориям</li>
     <li>Добавить онлайн-заявку или корзину</li>
@@ -265,9 +242,9 @@
     <li>Поднять доверие — сайт должен выглядеть как у серьёзного производителя</li>
   </ul>
 
-  <h2 class="scroll-fade">UI-kit</h2>
+  <h2>UI-kit</h2>
 
-  <div class="ui-section scroll-fade">
+  <div class="ui-section">
     <div class="ui-title">Цвета</div>
     <div class="color-grid">
       <div class="color-card">
@@ -315,7 +292,7 @@
     </div>
   </div>
 
-  <div class="ui-section scroll-fade">
+  <div class="ui-section">
     <div class="ui-title">Типографика</div>
 
     <div class="type-sample">
@@ -344,7 +321,7 @@
     </div>
   </div>
 
-  <div class="ui-section scroll-fade">
+  <div class="ui-section">
     <div class="ui-title">Кнопки</div>
     <div class="buttons-row">
       <a class="btn btn-primary">Основная</a>
@@ -353,21 +330,21 @@
     </div>
   </div>
 
-  <h2 class="scroll-fade">До</h2>
-  <p class="scroll-fade">Текущий сайт компании — устаревший дизайн, деревянный фон, мелкий текст, каталог свалкой.</p>
-  <div class="placeholder scroll-fade">
+  <h2>До</h2>
+  <p>Текущий сайт компании — устаревший дизайн, деревянный фон, мелкий текст, каталог свалкой.</p>
+  <div class="placeholder">
     🖼 Скриншоты старого сайта<br>появятся здесь
   </div>
 
-  <h2 class="scroll-fade">После</h2>
-  <p class="scroll-fade">Новый дизайн в разработке. Скоро здесь появятся финальные макеты.</p>
-  <div class="placeholder scroll-fade">
+  <h2>После</h2>
+  <p>Новый дизайн в разработке. Скоро здесь появятся финальные макеты.</p>
+  <div class="placeholder">
     🎨 Макеты нового сайта<br>в работе
   </div>
 
-  <h2 class="scroll-fade">Результат</h2>
-  <p class="scroll-fade">Статистика после запуска обновлённого сайта появится здесь после релиза.</p>
-  <div class="placeholder scroll-fade">
+  <h2>Результат</h2>
+  <p>Статистика после запуска обновлённого сайта появится здесь после релиза.</p>
+  <div class="placeholder">
     📊 Метрики: заявки, конверсия,<br>время на сайте, отказы
   </div>
 
@@ -376,24 +353,6 @@
   </footer>
 
 </div>
-
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  });
-
-  document.querySelectorAll('.scroll-fade, .color-card, .type-sample').forEach(el => {
-    observer.observe(el);
-  });
-</script>
 
 </body>
 </html>

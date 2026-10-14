@@ -105,10 +105,7 @@
     text-align: center;
   }
 
-  /* UI-KIT */
-  .ui-section {
-    margin-bottom: 48px;
-  }
+  .ui-section { margin-bottom: 48px; }
 
   .ui-title {
     font-size: 13px;
@@ -131,13 +128,9 @@
     border: 1px solid #25252a;
   }
 
-  .color-swatch {
-    height: 80px;
-  }
+  .color-swatch { height: 80px; }
 
-  .color-info {
-    padding: 10px 12px;
-  }
+  .color-info { padding: 10px 12px; }
 
   .color-name {
     font-size: 13px;
@@ -186,11 +179,7 @@
     transition: all 0.2s;
   }
 
-  .btn-primary {
-    background: #1a5fb4;
-    color: #fff;
-  }
-
+  .btn-primary { background: #1a5fb4; color: #fff; }
   .btn-primary:hover { background: #2069c4; }
 
   .btn-secondary {
@@ -198,14 +187,9 @@
     color: #eaeaea;
     border: 1px solid #3a3a44;
   }
-
   .btn-secondary:hover { border-color: #6b9eff; color: #6b9eff; }
 
-  .btn-accent {
-    background: #e8631a;
-    color: #fff;
-  }
-
+  .btn-accent { background: #e8631a; color: #fff; }
   .btn-accent:hover { background: #f07024; }
 
   footer {
@@ -215,34 +199,34 @@
     text-align: center;
   }
 
+  /* Анимации */
+  .scroll-fade {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .scroll-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .color-card, .type-sample {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .color-card.visible, .type-sample.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
   @media (max-width: 600px) {
     h1 { font-size: 32px; }
     body { padding: 40px 20px; }
     h2 { font-size: 22px; }
   }
-/* Анимации при скролле */
-.scroll-fade {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.scroll-fade.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Плавное появление UI-kit карточек */
-.color-card, .type-sample {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.color-card.visible, .type-sample.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
 </style>
 </head>
 <body>
@@ -281,7 +265,7 @@
     <li>Поднять доверие — сайт должен выглядеть как у серьёзного производителя</li>
   </ul>
 
-  <h2>UI-kit</h2>
+  <h2 class="scroll-fade">UI-kit</h2>
 
   <div class="ui-section scroll-fade">
     <div class="ui-title">Цвета</div>
@@ -331,7 +315,7 @@
     </div>
   </div>
 
-  <div class="ui-section">
+  <div class="ui-section scroll-fade">
     <div class="ui-title">Типографика</div>
 
     <div class="type-sample">
@@ -360,7 +344,7 @@
     </div>
   </div>
 
-  <div class="ui-section">
+  <div class="ui-section scroll-fade">
     <div class="ui-title">Кнопки</div>
     <div class="buttons-row">
       <a class="btn btn-primary">Основная</a>
@@ -392,6 +376,24 @@
   </footer>
 
 </div>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  document.querySelectorAll('.scroll-fade, .color-card, .type-sample').forEach(el => {
+    observer.observe(el);
+  });
+</script>
 
 </body>
 </html>

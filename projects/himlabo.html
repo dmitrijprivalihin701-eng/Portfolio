@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ФизЛабо — Кейс | Дмитрий Привалихин</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+    background: #0f0f10;
+    color: #eaeaea;
+    min-height: 100vh;
+    padding: 80px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container { max-width: 900px; width: 100%; }
+
+  .back {
+    display: inline-block;
+    color: #6b9eff;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 40px;
+  }
+
+  .back:hover { text-decoration: underline; }
+
+  h1 {
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    color: #fff;
+    line-height: 1.1;
+  }
+
+  .subtitle {
+    font-size: 18px;
+    color: #888;
+    line-height: 1.5;
+    margin-bottom: 48px;
+  }
+
+  .meta {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 64px;
+    flex-wrap: wrap;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .meta-label {
+    font-size: 12px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .meta-value {
+    font-size: 15px;
+    color: #eaeaea;
+    font-weight: 500;
+  }
+
+  h2 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 24px;
+    margin-top: 64px;
+  }
+
+  p, ul {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #b5b5b5;
+    margin-bottom: 16px;
+  }
+
+  ul { padding-left: 24px; }
+  ul li { margin-bottom: 8px; }
+
+  .placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    background: #17171a;
+    border: 2px dashed #2a2a30;
+    border-radius: 20px;
+    color: #555;
+    font-size: 15px;
+    margin: 24px 0;
+    padding: 40px;
+    text-align: center;
+  }
+
+  /* UI-KIT */
+  .ui-section {
+    margin-bottom: 48px;
+  }
+
+  .ui-title {
+    font-size: 13px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+  }
+
+  .color-card {
+    border-radius: 12px;
+    overflow: hidden;
+    background: #17171a;
+    border: 1px solid #25252a;
+  }
+
+  .color-swatch {
+    height: 80px;
+  }
+
+  .color-info {
+    padding: 10px 12px;
+  }
+
+  .color-name {
+    font-size: 13px;
+    color: #eaeaea;
+    font-weight: 500;
+    margin-bottom: 2px;
+  }
+
+  .color-hex {
+    font-size: 11px;
+    color: #666;
+    font-family: monospace;
+  }
+
+  .type-sample {
+    padding: 20px;
+    background: #17171a;
+    border: 1px solid #25252a;
+    border-radius: 12px;
+    margin-bottom: 12px;
+  }
+
+  .type-sample-label {
+    font-size: 11px;
+    color: #666;
+    font-family: monospace;
+    margin-bottom: 12px;
+  }
+
+  .buttons-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s;
+  }
+
+  .btn-primary {
+    background: #1a5fb4;
+    color: #fff;
+  }
+
+  .btn-primary:hover { background: #2069c4; }
+
+  .btn-secondary {
+    background: transparent;
+    color: #eaeaea;
+    border: 1px solid #3a3a44;
+  }
+
+  .btn-secondary:hover { border-color: #6b9eff; color: #6b9eff; }
+
+  .btn-accent {
+    background: #e8631a;
+    color: #fff;
+  }
+
+  .btn-accent:hover { background: #f07024; }
+
+  footer {
+    margin-top: 100px;
+    font-size: 13px;
+    color: #555;
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    h1 { font-size: 32px; }
+    body { padding: 40px 20px; }
+    h2 { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <a class="back" href="../index.html">← Назад</a>
+
+  <h1>ФизЛабо</h1>
+  <p class="subtitle">Редизайн сайта производителя школьного оборудования</p>
+
+  <div class="meta">
+    <div class="meta-item">
+      <span class="meta-label">Роль</span>
+      <span class="meta-value">Дизайнер, вёрстка</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Год</span>
+      <span class="meta-value">2026</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Статус</span>
+      <span class="meta-value">В работе</span>
+    </div>
+  </div>
+
+  <h2>Задача</h2>
+  <p>
+    Компания производит школьное оборудование для кабинетов химии и физики. Продают школам напрямую и через тендеры. Сайт не обновлялся больше 10 лет — выглядит устаревшим, каталог неудобный, нет онлайн-заявки.
+  </p>
+  <ul>
+    <li>Обновить визуал — убрать «деревянный» фон, мелкий текст, свалку блоков</li>
+    <li>Сделать понятный каталог по категориям</li>
+    <li>Добавить онлайн-заявку или корзину</li>
+    <li>Сделать адаптив — телефон, планшет, десктоп</li>
+    <li>Поднять доверие — сайт должен выглядеть как у серьёзного производителя</li>
+  </ul>
+
+  <h2>UI-kit</h2>
+
+  <div class="ui-section">
+    <div class="ui-title">Цвета</div>
+    <div class="color-grid">
+      <div class="color-card">
+        <div class="color-swatch" style="background: #0f0f10;"></div>
+        <div class="color-info">
+          <div class="color-name">Background</div>
+          <div class="color-hex">#0F0F10</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #1a5fb4;"></div>
+        <div class="color-info">
+          <div class="color-name">Primary</div>
+          <div class="color-hex">#1A5FB4</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #e8631a;"></div>
+        <div class="color-info">
+          <div class="color-name">Accent</div>
+          <div class="color-hex">#E8631A</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #f5f7fa;"></div>
+        <div class="color-info">
+          <div class="color-name">Surface</div>
+          <div class="color-hex">#F5F7FA</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #4caf50;"></div>
+        <div class="color-info">
+          <div class="color-name">Success</div>
+          <div class="color-hex">#4CAF50</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background: #e53935;"></div>
+        <div class="color-info">
+          <div class="color-name">Error</div>
+          <div class="color-hex">#E53935</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui-section">
+    <div class="ui-title">Типографика</div>
+
+    <div class="type-sample">
+      <div class="type-sample-label">H1 / 48px / Bold</div>
+      <div style="font-size: 48px; font-weight: 700; color: #fff; line-height: 1.1;">Заголовок страницы</div>
+    </div>
+
+    <div class="type-sample">
+      <div class="type-sample-label">H2 / 32px / Semibold</div>
+      <div style="font-size: 32px; font-weight: 600; color: #fff;">Заголовок раздела</div>
+    </div>
+
+    <div class="type-sample">
+      <div class="type-sample-label">H3 / 24px / Semibold</div>
+      <div style="font-size: 24px; font-weight: 600; color: #fff;">Подзаголовок</div>
+    </div>
+
+    <div class="type-sample">
+      <div class="type-sample-label">Body / 16px / Regular</div>
+      <div style="font-size: 16px; color: #b5b5b5; line-height: 1.7;">Основной текст — это читаемый размер, комфортный для длинных абзацев и описаний.</div>
+    </div>
+
+    <div class="type-sample">
+      <div class="type-sample-label">Caption / 12px / Regular</div>
+      <div style="font-size: 12px; color: #666;">Мелкий текст — подписи, служебная информация</div>
+    </div>
+  </div>
+
+  <div class="ui-section">
+    <div class="ui-title">Кнопки</div>
+    <div class="buttons-row">
+      <a class="btn btn-primary">Основная</a>
+      <a class="btn btn-accent">Акцентная</a>
+      <a class="btn btn-secondary">Вторичная</a>
+    </div>
+  </div>
+
+  <h2>До</h2>
+  <p>Текущий сайт компании — устаревший дизайн, деревянный фон, мелкий текст, каталог свалкой.</p>
+  <div class="placeholder">
+    🖼 Скриншоты старого сайта<br>появятся здесь
+  </div>
+
+  <h2>После</h2>
+  <p>Новый дизайн в разработке. Скоро здесь появятся финальные макеты.</p>
+  <div class="placeholder">
+    🎨 Макеты нового сайта<br>в работе
+  </div>
+
+  <h2>Результат</h2>
+  <p>Статистика после запуска обновлённого сайта появится здесь после релиза.</p>
+  <div class="placeholder">
+    📊 Метрики: заявки, конверсия,<br>время на сайте, отказы
+  </div>
+
+  <footer>
+    © 2026 Дмитрий Привалихин
+  </footer>
+
+</div>
+
+</body>
+</html>

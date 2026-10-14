@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Дмитрий Привалихин — Дизайнер</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+    background: #0f0f10;
+    color: #eaeaea;
+    min-height: 100vh;
+    padding: 80px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container {
+    max-width: 900px;
+    width: 100%;
+  }
+
+  header {
+    margin-bottom: 80px;
+  }
+
+  h1 {
+    font-size: 56px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.1;
+  }
+
+  .role {
+    font-size: 20px;
+    color: #888;
+    margin-bottom: 32px;
+    line-height: 1.5;
+  }
+
+  .contacts {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .contacts a {
+    color: #6b9eff;
+    text-decoration: none;
+    font-size: 15px;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .contacts a:hover {
+    border-bottom-color: #6b9eff;
+  }
+
+  h2 {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #666;
+    margin-bottom: 24px;
+  }
+
+  .project-card {
+    display: block;
+    padding: 32px;
+    background: #17171a;
+    border: 1px solid #25252a;
+    border-radius: 20px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.25s ease;
+    margin-bottom: 16px;
+  }
+
+  .project-card:hover {
+    border-color: #3a3a44;
+    transform: translateY(-3px);
+    background: #1c1c20;
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .project-title {
+    font-size: 26px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .status {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 100px;
+    background: rgba(255, 193, 7, 0.1);
+    color: #ffc107;
+    border: 1px solid rgba(255, 193, 7, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .status.done {
+    background: rgba(76, 175, 80, 0.1);
+    color: #4caf50;
+    border-color: rgba(76, 175, 80, 0.2);
+  }
+
+  .project-desc {
+    font-size: 15px;
+    color: #888;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .project-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: #232328;
+    color: #aaa;
+  }
+
+  footer {
+    margin-top: 80px;
+    font-size: 13px;
+    color: #555;
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    h1 { font-size: 38px; }
+    body { padding: 40px 20px; }
+    .project-title { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <h1>Дмитрий Привалихин</h1>
+    <p class="role">Графический дизайнер · UI/UX · Вёрстка</p>
+    <div class="contacts">
+      <a href="https://github.com/dmitrijprivalihin701-eng" target="_blank">GitHub</a>
+      <a href="mailto:email@example.com">Email</a>
+      <a href="https://t.me/username" target="_blank">Telegram</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Проекты</h2>
+
+    <a class="project-card" href="projects/himlabo.html">
+      <div class="project-header">
+        <span class="project-title">ФизЛабо</span>
+        <span class="status">В работе</span>
+      </div>
+      <p class="project-desc">
+        Редизайн сайта производителя школьного оборудования. Задача — сделать понятный каталог, добавить онлайн-заявку и обновить визуал под 2026 год.
+      </p>
+      <div class="project-tags">
+        <span class="tag">Редизайн</span>
+        <span class="tag">UI-kit</span>
+        <span class="tag">Вёрстка</span>
+        <span class="tag">Адаптив</span>
+      </div>
+    </a>
+
+  </section>
+
+  <footer>
+    © 2026 Дмитрий Привалихин
+  </footer>
+
+</div>
+
+</body>
+</html>

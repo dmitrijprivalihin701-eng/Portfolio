@@ -157,6 +157,37 @@
     body { padding: 40px 20px; }
     .project-title { font-size: 22px; }
   }
+
+/* Анимации появления */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.fade-in-delay-1 { animation-delay: 0.1s; }
+.fade-in-delay-2 { animation-delay: 0.2s; }
+.fade-in-delay-3 { animation-delay: 0.3s; }
+.fade-in-delay-4 { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Анимации при скролле */
+.scroll-fade {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 </style>
 </head>
 <body>
@@ -164,19 +195,19 @@
 <div class="container">
 
   <header>
-    <h1>Дмитрий Привалихин</h1>
-    <p class="role">Графический дизайнер · UI/UX · Вёрстка</p>
-    <div class="contacts">
+    <h1 class="fade-in">Дмитрий Привалихин</h1>
+    <p class="role fade-in fade-in-delay-1">Графический дизайнер · UI/UX · Вёрстка</p>
+    <div class="contacts fade-in fade-in-delay-2">
       <a href="https://github.com/dmitrijprivalihin701-eng" target="_blank">GitHub</a>
       <a href="mailto:dmitrijprivalihin701@gmail.com">Email</a>
       <a href="https://t.me/@tvoygosp0d1n" target="_blank">Telegram</a>
     </div>
   </header>
 
-  <section>
+  <section class="scroll-fade">
     <h2>Проекты</h2>
 
-    <a class="project-card" href="projects/himlabo.html">
+    <a class="project-card scroll-fade" href="projects/himlabo.html">
       <div class="project-header">
         <span class="project-title">ФизЛабо</span>
         <span class="status">В работе</span>

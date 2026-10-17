@@ -3,356 +3,127 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ФизЛабо — Кейс | Дмитрий Привалихин</title>
+<title>Кейс: Редизайн ФизЛабо — Дмитрий Привалихин</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
     background: #0f0f10;
     color: #eaeaea;
-    min-height: 100vh;
-    padding: 80px 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    line-height: 1.6;
   }
-
-  .container { max-width: 900px; width: 100%; }
-
-  .back {
-    display: inline-block;
-    color: #6b9eff;
-    text-decoration: none;
-    font-size: 14px;
-    margin-bottom: 40px;
+  
+  /* Шапка кейса */
+  .hero {
+    padding: 120px 24px 60px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
   }
-
+  .back { color: #6b9eff; text-decoration: none; font-size: 14px; display: inline-block; margin-bottom: 32px; font-weight: 500; }
   .back:hover { text-decoration: underline; }
+  .tags { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 24px; }
+  .tag { font-size: 13px; padding: 6px 14px; background: #1c1c20; color: #aaa; border-radius: 100px; border: 1px solid #333; }
+  h1 { font-size: 56px; font-weight: 700; margin-bottom: 24px; color: #fff; line-height: 1.1; letter-spacing: -0.02em; }
+  .subtitle { font-size: 20px; color: #888; max-width: 700px; margin: 0 auto 48px; line-height: 1.5; }
+  
+  /* Кнопки */
+  .actions { display: flex; gap: 16px; justify-content: center; margin-bottom: 64px; flex-wrap: wrap; }
+  .btn { padding: 16px 32px; border-radius: 12px; font-weight: 600; font-size: 16px; text-decoration: none; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 8px; }
+  .btn-primary { background: #1A5FB4; color: #fff; }
+  .btn-primary:hover { background: #2069c4; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(26, 95, 180, 0.3); }
+  .btn-secondary { background: transparent; color: #eaeaea; border: 1px solid #333; }
+  .btn-secondary:hover { border-color: #666; background: #1c1c20; }
 
-  h1 {
-    font-size: 48px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-bottom: 16px;
-    color: #fff;
-    line-height: 1.1;
+  /* Большое превью */
+  .main-preview {
+    max-width: 1100px;
+    margin: 0 auto 80px;
+    padding: 0 24px;
   }
-
-  .subtitle {
-    font-size: 18px;
-    color: #888;
-    line-height: 1.5;
-    margin-bottom: 48px;
-  }
-
-  .meta {
-    display: flex;
-    gap: 40px;
-    margin-bottom: 64px;
-    flex-wrap: wrap;
-  }
-
-  .meta-item {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .meta-label {
-    font-size: 12px;
-    color: #666;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-
-  .meta-value {
-    font-size: 15px;
-    color: #eaeaea;
-    font-weight: 500;
-  }
-
-  h2 {
-    font-size: 28px;
-    font-weight: 600;
-    color: #fff;
-    margin-bottom: 24px;
-    margin-top: 64px;
-  }
-
-  p, ul {
-    font-size: 16px;
-    line-height: 1.7;
-    color: #b5b5b5;
-    margin-bottom: 16px;
-  }
-
-  ul { padding-left: 24px; }
-  ul li { margin-bottom: 8px; }
-
-  .placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 300px;
-    background: #17171a;
-    border: 2px dashed #2a2a30;
+  .main-preview img {
+    width: 100%;
     border-radius: 20px;
-    color: #555;
-    font-size: 15px;
-    margin: 24px 0;
-    padding: 40px;
-    text-align: center;
-  }
-
-  .ui-section { margin-bottom: 48px; }
-
-  .ui-title {
-    font-size: 13px;
-    color: #666;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 16px;
-  }
-
-  .color-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 12px;
-  }
-
-  .color-card {
-    border-radius: 12px;
-    overflow: hidden;
-    background: #17171a;
     border: 1px solid #25252a;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.6);
+    display: block;
   }
 
-  .color-swatch { height: 80px; }
+  /* Контент */
+  .content { max-width: 800px; margin: 0 auto; padding: 0 24px 100px; }
+  h2 { font-size: 32px; font-weight: 600; color: #fff; margin: 64px 0 24px; }
+  p { font-size: 18px; color: #b5b5b5; margin-bottom: 24px; }
+  ul { padding-left: 24px; margin-bottom: 32px; color: #b5b5b5; font-size: 18px; }
+  li { margin-bottom: 12px; }
+  
+  .step-img { width: 100%; border-radius: 16px; border: 1px solid #25252a; margin: 32px 0 12px; }
+  .caption { font-size: 14px; color: #666; text-align: center; margin-bottom: 48px; }
 
-  .color-info { padding: 10px 12px; }
-
-  .color-name {
-    font-size: 13px;
-    color: #eaeaea;
-    font-weight: 500;
-    margin-bottom: 2px;
-  }
-
-  .color-hex {
-    font-size: 11px;
-    color: #666;
-    font-family: monospace;
-  }
-
-  .type-sample {
-    padding: 20px;
-    background: #17171a;
-    border: 1px solid #25252a;
-    border-radius: 12px;
-    margin-bottom: 12px;
-  }
-
-  .type-sample-label {
-    font-size: 11px;
-    color: #666;
-    font-family: monospace;
-    margin-bottom: 12px;
-  }
-
-  .buttons-row {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-
-  .btn {
-    display: inline-block;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    font-family: inherit;
-    transition: all 0.2s;
-  }
-
-  .btn-primary { background: #1a5fb4; color: #fff; }
-  .btn-primary:hover { background: #2069c4; }
-
-  .btn-secondary {
-    background: transparent;
-    color: #eaeaea;
-    border: 1px solid #3a3a44;
-  }
-  .btn-secondary:hover { border-color: #6b9eff; color: #6b9eff; }
-
-  .btn-accent { background: #e8631a; color: #fff; }
-  .btn-accent:hover { background: #f07024; }
-
-  footer {
-    margin-top: 100px;
-    font-size: 13px;
-    color: #555;
-    text-align: center;
-  }
-
-  @media (max-width: 600px) {
-    h1 { font-size: 32px; }
-    body { padding: 40px 20px; }
-    h2 { font-size: 22px; }
+  /* Адаптив */
+  @media (max-width: 768px) {
+    h1 { font-size: 36px; }
+    .subtitle { font-size: 18px; }
+    .hero { padding: 60px 20px 40px; }
+    .actions { flex-direction: column; }
+    .btn { width: 100%; justify-content: center; }
+    h2 { font-size: 26px; }
+    p, ul { font-size: 16px; }
   }
 </style>
 </head>
 <body>
 
-<div class="container">
-
-  <a class="back" href="../index.html">← Назад</a>
-
-  <h1>ФизЛабо</h1>
-  <p class="subtitle">Редизайн сайта производителя школьного оборудования</p>
-
-  <div class="meta">
-    <div class="meta-item">
-      <span class="meta-label">Роль</span>
-      <span class="meta-value">Дизайнер, вёрстка</span>
-    </div>
-    <div class="meta-item">
-      <span class="meta-label">Год</span>
-      <span class="meta-value">2026</span>
-    </div>
-    <div class="meta-item">
-      <span class="meta-label">Статус</span>
-      <span class="meta-value">В работе</span>
-    </div>
+<div class="hero">
+  <a href="../index.html" class="back">← Назад в портфолио</a>
+  <div class="tags">
+    <span class="tag">UI/UX Дизайн</span>
+    <span class="tag">Figma</span>
+    <span class="tag">Vibecraft (AI)</span>
+    <span class="tag">E-commerce</span>
   </div>
+  <h1>ФизЛабо: Редизайн сайта производителя</h1>
+  <p class="subtitle">Полный цикл: от проектирования в Figma до сборки интерактивного прототипа с помощью нейросетей.</p>
 
+  <div class="actions">
+    <a href="https://bbak4vk98uqgebvbluaj.containers.yandexcloud.net/" target="_blank" class="btn btn-primary">
+      Посмотреть живой сайт ↗
+    </a>
+    <a href="#details" class="btn btn-secondary">Читать кейс ↓</a>
+  </div>
+</div>
+
+<div class="main-preview">
+  <!-- Сюда вставь главный скриншот (новый сайт) -->
+  <img src="../assets/new-site.png" alt="Превью нового сайта ФизЛабо">
+</div>
+
+<div class="content" id="details">
   <h2>Задача</h2>
-  <p>
-    Компания производит школьное оборудование для кабинетов химии и физики. Продают школам напрямую и через тендеры. Сайт не обновлялся больше 10 лет — выглядит устаревшим, каталог неудобный, нет онлайн-заявки.
-  </p>
-  <ul>
-    <li>Обновить визуал — убрать «деревянный» фон, мелкий текст, свалку блоков</li>
-    <li>Сделать понятный каталог по категориям</li>
-    <li>Добавить онлайн-заявку или корзину</li>
-    <li>Сделать адаптив — телефон, планшет, десктоп</li>
-    <li>Поднять доверие — сайт должен выглядеть как у серьёзного производителя</li>
-  </ul>
+  <p>Производитель школьного оборудования нуждался в обновлении устаревшего сайта. Главные проблемы: сложно найти нужный товар, нет мобильной версии, отсутствует возможность быстро запросить коммерческое предложение (КП).</p>
+  
+  <!-- Место для скрина старого сайта -->
+  <img src="../assets/old-site.png" alt="Старый сайт" class="step-img">
+  <p class="caption">Старый сайт: перегруженный интерфейс, деревянный фон, мелкий текст.</p>
 
-  <h2>UI-kit</h2>
+  <h2>1. Проектирование в Figma</h2>
+  <p>Я начал с разработки структуры и дизайна в Figma. За основу взял современный подход: строгая сетка, много воздуха, понятная типографика и акцент на карточках товаров.</p>
+  
+  <!-- Место для скрина Figma -->
+  <img src="../assets/figma-mockup.png" alt="Макет в Figma" class="step-img">
+  <p class="caption">Процесс работы над макетом: настройка сетки, подбор цветов, сборка UI-kit.</p>
 
-  <div class="ui-section">
-    <div class="ui-title">Цвета</div>
-    <div class="color-grid">
-      <div class="color-card">
-        <div class="color-swatch" style="background: #0f0f10;"></div>
-        <div class="color-info">
-          <div class="color-name">Background</div>
-          <div class="color-hex">#0F0F10</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #1a5fb4;"></div>
-        <div class="color-info">
-          <div class="color-name">Primary</div>
-          <div class="color-hex">#1A5FB4</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #e8631a;"></div>
-        <div class="color-info">
-          <div class="color-name">Accent</div>
-          <div class="color-hex">#E8631A</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #f5f7fa;"></div>
-        <div class="color-info">
-          <div class="color-name">Surface</div>
-          <div class="color-hex">#F5F7FA</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #4caf50;"></div>
-        <div class="color-info">
-          <div class="color-name">Success</div>
-          <div class="color-hex">#4CAF50</div>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background: #e53935;"></div>
-        <div class="color-info">
-          <div class="color-name">Error</div>
-          <div class="color-hex">#E53935</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="ui-section">
-    <div class="ui-title">Типографика</div>
-
-    <div class="type-sample">
-      <div class="type-sample-label">H1 / 48px / Bold</div>
-      <div style="font-size: 48px; font-weight: 700; color: #fff; line-height: 1.1;">Заголовок страницы</div>
-    </div>
-
-    <div class="type-sample">
-      <div class="type-sample-label">H2 / 32px / Semibold</div>
-      <div style="font-size: 32px; font-weight: 600; color: #fff;">Заголовок раздела</div>
-    </div>
-
-    <div class="type-sample">
-      <div class="type-sample-label">H3 / 24px / Semibold</div>
-      <div style="font-size: 24px; font-weight: 600; color: #fff;">Подзаголовок</div>
-    </div>
-
-    <div class="type-sample">
-      <div class="type-sample-label">Body / 16px / Regular</div>
-      <div style="font-size: 16px; color: #b5b5b5; line-height: 1.7;">Основной текст — это читаемый размер, комфортный для длинных абзацев и описаний.</div>
-    </div>
-
-    <div class="type-sample">
-      <div class="type-sample-label">Caption / 12px / Regular</div>
-      <div style="font-size: 12px; color: #666;">Мелкий текст — подписи, служебная информация</div>
-    </div>
-  </div>
-
-  <div class="ui-section">
-    <div class="ui-title">Кнопки</div>
-    <div class="buttons-row">
-      <a class="btn btn-primary">Основная</a>
-      <a class="btn btn-accent">Акцентная</a>
-      <a class="btn btn-secondary">Вторичная</a>
-    </div>
-  </div>
-
-  <h2>До</h2>
-  <p>Текущий сайт компании — устаревший дизайн, деревянный фон, мелкий текст, каталог свалкой.</p>
-  <div class="placeholder">
-    🖼 Скриншоты старого сайта<br>появятся здесь
-  </div>
-
-  <h2>После</h2>
-  <p>Новый дизайн в разработке. Скоро здесь появятся финальные макеты.</p>
-  <div class="placeholder">
-    🎨 Макеты нового сайта<br>в работе
-  </div>
-
+  <h2>2. Разработка прототипа (Vibecraft)</h2>
+  <p>Чтобы быстро проверить гипотезы и показать клиенту живой сайт, я использовал возможности ИИ (Vibecraft). Это позволило превратить статичный макет в кликабельный прототип с адаптивом и анимациями.</p>
+  
   <h2>Результат</h2>
-  <p>Статистика после запуска обновлённого сайта появится здесь после релиза.</p>
-  <div class="placeholder">
-    📊 Метрики: заявки, конверсия,<br>время на сайте, отказы
-  </div>
-
-  <footer>
-    © 2026 Дмитрий Привалихин
-  </footer>
-
+  <ul>
+    <li>Разработан современный визуальный стиль и структура каталога.</li>
+    <li>Создан адаптивный прототип (отлично смотрится на телефонах).</li>
+    <li>Добавлены кнопки «В корзину» и «Запросить КП» для сбора лидов.</li>
+    <li>Настроены плавные анимации при скролле для «живости» интерфейса.</li>
+  </ul>
 </div>
 
 </body>
 </html>
+
